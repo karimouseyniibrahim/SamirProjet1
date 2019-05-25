@@ -1,0 +1,10 @@
+<?php 
+
+return [
+    'trajetlivreur' => 'trajetlivreur',
+    'user_id' => '',
+    'zoneactivite_id' => '',
+    'edit' => '',
+    'show' => '',
+    'delete' => '',
+];

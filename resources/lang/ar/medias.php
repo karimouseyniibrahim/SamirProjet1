@@ -1,0 +1,32 @@
+<?php 
+
+return [
+    'medias' => 'ميديا',
+    'name' => 'الاسم',
+    'description' => 'الوصف',
+    'type' => 'النوع',
+    'edit' => 'تعديل',
+    'show' => 'إظهار',
+    'delete' => 'حذف',
+    'ask-to-delete' => '',
+    'message-to-delete' => '',
+    'message-btn' => '',
+    'message-delete' => '',
+    'views' => '',
+    'details' => '',
+    'gallery' => [
+        'empty' => '',
+    ],
+    'nomenclature' => '',
+    'action' => '',
+    'element' => '',
+    'empty-nomenclature' => '',
+    'show-all' => '',
+    'galery' => '',
+    'upload-success' => '',
+    'file-not-delete' => '',
+    'file-delete' => '',
+    'message-alert' => '',
+    'download' => '',
+    'files' => '',
+];
