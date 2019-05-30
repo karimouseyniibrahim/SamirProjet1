@@ -1,4 +1,4 @@
-@extends(layoutExtend('website', 'home'), ["images"=>$images])
+@extends(layoutExtend('website', 'home'), ["images"=>""])
 
 @section('title')
     {{ trans('home.home') }}
@@ -21,7 +21,7 @@
     @include('website.homepage.news')
     {{--@include('website.homepage.formation')--}}
     {{--@include('website.homepage.site')--}}
-    @include('website.homepage.gallery')
+    {{--@include('website.homepage.gallery')--}}
 
 @endsection
 

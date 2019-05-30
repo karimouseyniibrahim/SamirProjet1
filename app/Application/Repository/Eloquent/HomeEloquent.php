@@ -38,17 +38,7 @@ class HomeEloquent extends AbstractEloquent implements HomeInterface{
             'lastRegisterUser' => $lastRegisterUser ,
             'pages' => Page::count() ,
             'menus' => Menu::count() ,
-            'artisan' => Artisan::count() ,
-            'formation' => Formation::count() ,
-            'site' => Site::count() ,
-            'local' => Local::count() ,
-            'contact' => Contact::count() ,
-            'contactNoRead' => Contact::where("read",null)->count(),
-            'requests' => Request::count() ,
-            'requestsN' => Request::where("status",null)->count(),
-            'inscription' => Inscription::count() ,
-            'inscriptionsN' => Inscription::where("status",null)->count() ,
-            
+                     
             'setting' => Setting::count(),
             'logs' => Log::count(),
             'log' => Log::with('user')->limit(10)->orderBy('id' , 'desc')->get(),

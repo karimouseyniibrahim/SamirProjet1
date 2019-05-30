@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', '/LoginController@index');
+Route::get('/', 'HomeController@index');
 Route::get('contact' , 'ContactController@index');
 Route::post('contact' , 'ContactController@storeContact');
 
