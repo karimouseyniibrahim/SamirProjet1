@@ -61,4 +61,5 @@ return [
     'bureauposte' => '',
     'trajetlivreur' => '',
     'localisationlivreur' => '',
+    'commandeproduit' => '',
 ];

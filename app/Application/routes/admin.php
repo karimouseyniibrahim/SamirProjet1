@@ -265,3 +265,11 @@ Route::post('localisationlivreur/item/{id}' , 'LocalisationlivreurController@upd
 Route::get('localisationlivreur/{id}/delete' , 'LocalisationlivreurController@destroy');
 Route::get('localisationlivreur/{id}/view' , 'LocalisationlivreurController@getById');
 Route::get('localisationlivreur/pluck', 'LocalisationlivreurController@pluck');
+#### commandeproduit control
+Route::get('commandeproduit' , 'CommandeproduitController@index');
+Route::get('commandeproduit/item/{id?}' , 'CommandeproduitController@show');
+Route::post('commandeproduit/item' , 'CommandeproduitController@store');
+Route::post('commandeproduit/item/{id}' , 'CommandeproduitController@update');
+Route::get('commandeproduit/{id}/delete' , 'CommandeproduitController@destroy');
+Route::get('commandeproduit/{id}/view' , 'CommandeproduitController@getById');
+Route::get('commandeproduit/pluck', 'CommandeproduitController@pluck');

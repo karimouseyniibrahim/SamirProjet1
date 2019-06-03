@@ -8,4 +8,6 @@ return [
     'edit' => '',
     'show' => '',
     'delete' => '',
+    'Encours' => '',
+    'Arriver' => '',
 ];

@@ -55,6 +55,9 @@
                                                 </form>
                                             </div>
                                         </li>
+                                    @else
+                                        <li><a href="{{ url('/login') }}" class="nav-link">{{ trans('website.login') }}</a></li>
+                                        <li><a href="{{ url('/register') }}" class="nav-link">{{ trans('website.register') }}</a></li>
                                     @endif
                                 </ul>
                             </div>

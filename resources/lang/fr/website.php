@@ -37,7 +37,7 @@ return [
     'categorie' => 'categorie',
     'post' => '',
     'DummyView' => '',
-    'register' => '',
+    'register' => 's\'inscrire',
     'inscription' => '',
     'section' => '',
     'local' => '',
@@ -61,4 +61,5 @@ return [
     'bureauposte' => '',
     'trajetlivreur' => '',
     'localisationlivreur' => '',
+    'commandeproduit' => '',
 ];

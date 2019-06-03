@@ -89,3 +89,11 @@ Route::post('localisationlivreur/item' , 'LocalisationlivreurController@store');
 Route::post('localisationlivreur/item/{id}' , 'LocalisationlivreurController@update');
 Route::get('localisationlivreur/{id}/delete' , 'LocalisationlivreurController@destroy');
 Route::get('localisationlivreur/{id}/view' , 'LocalisationlivreurController@getById');
+
+#### commandeproduit control
+Route::get('commandeproduit' , 'CommandeproduitController@index');
+Route::get('commandeproduit/item/{id?}' , 'CommandeproduitController@show');
+Route::post('commandeproduit/item' , 'CommandeproduitController@store');
+Route::post('commandeproduit/item/{id}' , 'CommandeproduitController@update');
+Route::get('commandeproduit/{id}/delete' , 'CommandeproduitController@destroy');
+Route::get('commandeproduit/{id}/view' , 'CommandeproduitController@getById');
