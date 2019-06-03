@@ -1,5 +1,35 @@
 @extends(layoutExtend('website'))
 
+ <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+            <div class="col-md-6">
+                <!-- Default form login -->
+                <form role="form" method="POST" action="{{ route('login') }}" class="text-center border border-light p-5">
+                    <p class="h4 mb-4">{{ trans('admin.auth.title') }}</p>
+                    {{ csrf_field() }} hhhh
+                    <!-- Email -->
+                    <input type="email" name="email" value="{{ old('email') }}" required id="email" class="form-control mb-4" placeholder="{{ trans('admin.auth.email') }}">
+                    <!-- Password -->
+                    <input type="password" name="password" required id="password" class="form-control mb-4" placeholder="{{ trans('admin.auth.password') }}">
+                    <div class="float-left mb-4">
+                        <div>
+                            <!-- Remember me -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox"  name="remember" {{ old('remember') ? 'checked' : '' }} class="custom-control-input" id="remember">
+                                <label class="custom-control-label" for="remember">{{ trans('admin.auth.remember_me') }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sign in button -->
+                    <button class="btn btn-info btn-block my-4" type="submit">{{ trans('admin.auth.login') }}</button>
+                </form>
+                <!-- Default form login -->
+            </div>
+        </div>
+
+    </div>
+
 @section('content')
 <div class="container">
     <div class="row">
