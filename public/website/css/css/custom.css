@@ -1,0 +1,121 @@
+.circle-icons i {
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin: 3px;
+    border: 1px solid #e0e0e0;
+    color: #bdbdbd;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+}
+
+.circle-icons i:hover {
+    color: #fff;
+    background-color: #4285f4 !important;
+}
+
+.page-header-sitebrand-topbar .page-header-top-right .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 .1rem 0 0;
+    font-size: .875rem;
+    text-transform: uppercase;
+    color: #007bff;
+}
+
+.page-header-sitebrand-topbar .page-header-top-right .menu li {
+    display: inline;
+}
+
+.page-header-sitebrand-topbar .page-header-top-right .nav-link {
+    display: inline;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: #007bff;
+}
+
+.page-header-sitebrand-topbar .page-header-top-right .nav-link:hover {
+    text-decoration: underline;
+}
+
+.navbar .mega-dropdown .dropdown-menu.mega-menu {
+    width: 90%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-left: 5%;
+}
+
+.navbar-rounded {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+body::-webkit-scrollbar {
+    width: .4em;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
+    background-color: #333;
+}
+body::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #007bff;
+}
+
+.side-menu ul li:first-of-type {
+    border-top: none;
+}
+
+.side-menu ul li {
+    padding-top: .8rem;
+    border-top: 1px solid #eceeef;
+    padding-bottom: .3rem;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.top-container {
+    /* background-color: #f1f1f1; */
+    padding: 30px;
+    /* text-align: center; */
+}
+
+.navbar {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .navbar {
+    padding-top: 102px;
+}
+
+.carousel-half {
+     height: 50vh;
+}
+
+.carousel.carousel-half .carousel-inner, .carousel.carousel-half .carousel-inner .carousel-item, .carousel.carousel-half .carousel-inner .carousel-item.active {
+    height: 100%;
+}
+
+@media (max-width: 750px) and (min-width: 500px), (min-width: 992px) {
+    .w-lg-100 {
+        width: 100%!important;
+    }
+
+}

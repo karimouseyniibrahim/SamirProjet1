@@ -100,9 +100,7 @@ return [
         'hour' => 'hour',
         'minute' => 'minute',
         'second' => 'second',
-        'title' => [
-            'fr' => '',
-        ],
+        'title' => '',
         'content' => 'content',
         'description' => 'description',
         'excerpt' => 'excerpt',

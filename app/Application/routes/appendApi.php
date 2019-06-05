@@ -132,3 +132,10 @@ Route::get('localisationlivreur/delete/{id}', 'LocalisationlivreurApi@delete');
 Route::post('localisationlivreur/add', 'LocalisationlivreurApi@add');
 Route::post('localisationlivreur/update/{id}', 'LocalisationlivreurApi@update');
 Route::get('localisationlivreur', 'LocalisationlivreurApi@index');
+
+#commandeproduit
+Route::get('commandeproduit/getById/{id}', 'CommandeproduitApi@getById');
+Route::get('commandeproduit/delete/{id}', 'CommandeproduitApi@delete');
+Route::post('commandeproduit/add', 'CommandeproduitApi@add');
+Route::post('commandeproduit/update/{id}', 'CommandeproduitApi@update');
+Route::get('commandeproduit', 'CommandeproduitApi@index');

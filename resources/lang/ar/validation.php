@@ -102,9 +102,7 @@ return [
         'hour' => 'الساعة',
         'minute' => 'الدقيقة',
         'second' => 'الثواني',
-        'title' => [
-            'fr' => '',
-        ],
+        'title' => '',
         'content' => 'المحتوي',
         'description' => 'الوصف',
         'excerpt' => 'الخبرة',
