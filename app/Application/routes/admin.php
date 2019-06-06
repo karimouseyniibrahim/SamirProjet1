@@ -138,67 +138,6 @@ Route::get('categorie/{id}/delete', 'CategorieController@destroy');
 Route::get('categorie/{id}/view', 'CategorieController@getById');
 Route::get('categorie/pluck', 'CategorieController@pluck');
 
-#### formation control
-Route::get('formation' , 'FormationController@index');
-Route::get('formation/item/{id?}' , 'FormationController@show');
-Route::post('formation/item' , 'FormationController@store');
-Route::post('formation/item/{id}' , 'FormationController@update');
-Route::get('formation/{id}/delete' , 'FormationController@destroy');
-Route::get('formation/{id}/view' , 'FormationController@getById');
-Route::get('formation/pluck', 'FormationController@pluck');
-#### inscription control
-Route::get('inscription' , 'InscriptionController@index');
-Route::get('inscription/item/{id?}' , 'InscriptionController@show');
-Route::post('inscription/item' , 'InscriptionController@store');
-Route::post('inscription/validation' , 'InscriptionController@validation');
-Route::post('inscription/item/{id}' , 'InscriptionController@update');
-Route::get('inscription/{id}/delete' , 'InscriptionController@destroy');
-Route::get('inscription/{id}/view' , 'InscriptionController@getById');
-Route::get('inscription/pluck', 'InscriptionController@pluck');
-#### site control
-Route::get('site' , 'SiteController@index');
-Route::get('site/item/{id?}' , 'SiteController@show');
-Route::post('site/item' , 'SiteController@store');
-Route::post('site/item/{id}' , 'SiteController@update');
-Route::get('site/{id}/delete' , 'SiteController@destroy');
-Route::get('site/{id}/view' , 'SiteController@getById');
-Route::get('site/pluck', 'SiteController@pluck');
-Route::get('site/locaux{id}', 'SiteController@locaux');
-#### local control
-Route::get('local' , 'LocalController@index');
-Route::get('local/item/{id?}' , 'LocalController@show');
-Route::post('local/item' , 'LocalController@store');
-Route::post('local/item/{id}' , 'LocalController@update');
-Route::get('local/{id}/delete' , 'LocalController@destroy');
-Route::get('local/{id}/view' , 'LocalController@getById');
-Route::get('local/pluck', 'LocalController@pluck');
-#### artisan control
-Route::get('artisan' , 'ArtisanController@index');
-Route::get('artisan/item/{id?}' , 'ArtisanController@show');
-Route::post('artisan/item' , 'ArtisanController@store');
-Route::post('artisan/item/{id}' , 'ArtisanController@update');
-Route::get('artisan/{id}/delete' , 'ArtisanController@destroy');
-Route::get('artisan/{id}/view' , 'ArtisanController@getById');
-Route::get('artisan/pluck', 'ArtisanController@pluck');
-#### request control
-Route::get('request' , 'RequestController@index');
-Route::get('request/item/{id?}' , 'RequestController@show');
-Route::get('requestlocal/item/{id?}' , 'RequestController@show');
-Route::post('request/item' , 'RequestController@store');
-Route::post('request/validation' , 'RequestController@validation');
-Route::post('request/item/{id}' , 'RequestController@update');
-Route::get('request/{id}/delete' , 'RequestController@destroy');
-Route::get('request/{id}/view' , 'RequestController@getById');
-Route::get('request/pluck', 'RequestController@pluck');
-#### news control
-Route::get('news' , 'NewsController@index');
-Route::get('news/item/{id?}' , 'NewsController@show');
-Route::post('news/item' , 'NewsController@store');
-Route::post('news/item/{id}' , 'NewsController@update');
-Route::get('news/{id}/delete' , 'NewsController@destroy');
-Route::get('news/{id}/view' , 'NewsController@getById');
-Route::get('news/pluck', 'NewsController@pluck');
-
 #### medias control
 Route::get('medias' , 'MediasController@index');
 Route::get('medias/item/{id?}' , 'MediasController@show');
@@ -209,14 +148,6 @@ Route::get('medias/{id}/view' , 'MediasController@getById');
 Route::get('medias/pluck', 'MediasController@pluck');
 Route::get('medias/file/{id}' , 'MediasController@filedestroy');
 
-#### produits control
-Route::get('produits' , 'ProduitsController@index');
-Route::get('produits/item/{id?}' , 'ProduitsController@show');
-Route::post('produits/item' , 'ProduitsController@store');
-Route::post('produits/item/{id}' , 'ProduitsController@update');
-Route::get('produits/{id}/delete' , 'ProduitsController@destroy');
-Route::get('produits/{id}/view' , 'ProduitsController@getById');
-Route::get('produits/pluck', 'ProduitsController@pluck');
 #### produits control
 Route::get('produits' , 'ProduitsController@index');
 Route::get('produits/item/{id?}' , 'ProduitsController@show');
