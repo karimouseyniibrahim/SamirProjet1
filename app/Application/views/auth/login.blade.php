@@ -57,6 +57,12 @@
                         </div>
 
                         <h1>Se connecter</h1>
+
+                         @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
            
                         <form class="form-horizontal form-signin" method="post" action="{{ route('login') }}">
                             {{ csrf_field() }}              

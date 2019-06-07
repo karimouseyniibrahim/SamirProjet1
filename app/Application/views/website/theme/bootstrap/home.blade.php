@@ -82,14 +82,22 @@
                                     <a href="Catalogue_tarifs.pdf" title="Tarifs">Tarifs</a>
                                 </div>
                             </div>
+                               @if (Auth::check())
+                               <div class="signup-request-buttons visible-link-big">
+                                <div class="menu_req_btn">
+                                    <a class="menu_main_cta " href="{{ url(getCurrentLang().'/admin/home') }}">Tableau de bord</a>
+                                </div>                        
+                            </div>
+                             @else
                             <div class="signup-request-buttons visible-link-big">
                                 <div class="menu_req_btn">
                                     <a class="menu_main_cta " href="{{ route('register') }}">INSCRIPTION</a>
                                 </div>                        
                             </div>
                             <div class="menu_login_btn top-menu ">
-                                <a class="menu_login_cta " href="{{ route('login') }}">Connexion</a>
+                                <a class="menu_login_cta " href="{{ route('login') }}">CONNEXION</a>
                             </div><!-- end Signup & Login buttons -->
+                            @endif
                         </div>
                     </div><!-- end main_menu -->
                 </div>

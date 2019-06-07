@@ -56,14 +56,31 @@
                         </div>
    
                         <h1>Créer un Compte</h1>
+                         @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
            
                         <form class="form-horizontal form-signin" method="post" action="{{ route('register') }}">
-                            {{ csrf_field() }}              
+                            {{ csrf_field() }}       
+                            <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} form-group-margin">
+                                <label for="name" class="no-mobile-display">
+                                    Nom
+                                </label>
+                                <input type="text" name="name" value="{{ old('name') }}" required id="name" autofocus="" class="form-control field-required" placeholder="Nom d'utilisateur / Mail">
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
                             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} form-group-margin">
                                 <label for="email" class="no-mobile-display">
                                     Adresse e-mail
                                 </label>
-                                <input type="text" name="email" value="{{ old('email') }}" required id="email" autofocus="" class="form-control field-required" placeholder="Nom d'utilisateur / Mail">
+                                <input type="email" name="email" value="{{ old('email') }}" required id="email" autofocus="" class="form-control field-required" placeholder="Nom d'utilisateur / Mail">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>

@@ -1,3 +1,2 @@
 <?php
 
-Auth::routes();
