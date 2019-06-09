@@ -45,9 +45,9 @@
         <li>
             @if(array_key_exists('item' , $admin))
                 @if(array_intersect($admin['item']['controller_path']  ,$p))
-                    <a href="{{ array_key_exists('sub' , $admin) ? 'javascript:void(0);' : url($admin['item']['link']) }}"
-                       class="{{ array_key_exists('sub' , $admin) ? 'menu-toggle' : '' }}">
-                        @if(array_key_exists('sub' , $admin))
+                    <a href="{{ !empty($admin['sub']) ? 'javascript:void(0);' : url($admin['item']['link']) }}"
+                       class="{{ !empty($admin['sub']) ? 'menu-toggle' : '' }}">
+                        @if(!empty($admin['sub']))
                             <span class="menu-caret">
                               <i class="material-icons">arrow_drop_down</i>
                             </span>

@@ -29,7 +29,7 @@
 </head>
 <body>
 <div id="app">
-    @include(layoutMenu('website'))
+    <!--@include(layoutMenu('website'))-->
     @include(layoutPushHeader('website'))
     @stack('before')
     @include(layoutContent('website'))

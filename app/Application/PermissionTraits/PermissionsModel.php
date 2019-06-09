@@ -35,7 +35,7 @@ class PermissionsModel{
 
     public function can($user){
         $groupRoles = $this->getGroupRoles($user);
-        dd($groupRoles);
+        //dd($groupRoles);
     }
 
 }

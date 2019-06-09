@@ -1,7 +1,7 @@
 <?php
 
 #### produits control
-// Route::get('produits' , 'ProduitsController@index');
+Route::get('produits' , 'ProduitsController@index');
 // Route::get('produits/item/{id?}' , 'ProduitsController@show');
 // Route::post('produits/item' , 'ProduitsController@store');
 // Route::post('produits/item/{id}' , 'ProduitsController@update');

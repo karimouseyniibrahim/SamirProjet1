@@ -78,10 +78,9 @@
 <body class="theme-light-blue">
 
 <div id="top-section">
-@include(layoutMenu('website'))
 <!--Main layout-->
     <main>
-        @include(layoutMain('website'))
+        <!--@include(layoutMain('website'))-->
         @include(layoutContent('website'))
     </main>
     <div id="topBtn" class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px; display: none">
