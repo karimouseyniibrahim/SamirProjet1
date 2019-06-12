@@ -139,3 +139,12 @@
 // Route::post('commandeproduit/add', 'CommandeproduitApi@add');
 // Route::post('commandeproduit/update/{id}', 'CommandeproduitApi@update');
 // Route::get('commandeproduit', 'CommandeproduitApi@index');
+
+
+
+#colis
+Route::get('colis/getById/{id}', 'ColisApi@getById');
+Route::get('colis/delete/{id}', 'ColisApi@delete');
+Route::post('colis/add', 'ColisApi@add');
+Route::post('colis/update/{id}', 'ColisApi@update');
+Route::get('colis', 'ColisApi@index');

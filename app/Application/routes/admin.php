@@ -204,3 +204,12 @@ Route::post('commandeproduit/item/{id}' , 'CommandeproduitController@update');
 Route::get('commandeproduit/{id}/delete' , 'CommandeproduitController@destroy');
 Route::get('commandeproduit/{id}/view' , 'CommandeproduitController@getById');
 Route::get('commandeproduit/pluck', 'CommandeproduitController@pluck');
+
+#### colis control
+Route::get('colis' , 'ColisController@index');
+Route::get('colis/item/{id?}' , 'ColisController@show');
+Route::post('colis/item' , 'ColisController@store');
+Route::post('colis/item/{id}' , 'ColisController@update');
+Route::get('colis/{id}/delete' , 'ColisController@destroy');
+Route::get('colis/{id}/view' , 'ColisController@getById');
+Route::get('colis/pluck', 'ColisController@pluck');

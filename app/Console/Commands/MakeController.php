@@ -86,7 +86,7 @@ class MakeController extends GeneratorCommand
             $item = \App\Application\Model\Permission::create($array);
             $id[] = $item->id;
         }
-        $group = Group::find(2);
+        $group = Group::find(5);
         $group->permission()->attach($id);
     }
 

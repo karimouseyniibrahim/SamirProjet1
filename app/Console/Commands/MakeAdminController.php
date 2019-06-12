@@ -388,7 +388,7 @@ class MakeAdminController extends GeneratorCommand
     {
         $name = $this->getNameInput();
         $this->insertItem($name, 1, '/admin/' . strtolower($name));
-        $this->insertItem($name, 3, strtolower($name), '<i class="fa fa-plus-square-o" aria-hidden="true"></i> ');
+        //$this->insertItem($name, 3, strtolower($name), '<i class="fa fa-plus-square-o" aria-hidden="true"></i> ');
         $this->line('Done Add Item to menu table  .');
     }
 

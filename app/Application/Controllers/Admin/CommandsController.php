@@ -581,7 +581,7 @@ class CommandsController extends AbstractController
                         die("Couldn't write to the file.");
                     }
                     $this->insertItem($name, 1, '/admin/' . strtolower($name));
-                    $this->insertItem($name, 3, strtolower($name), '<i class="fa fa-plus-square-o" aria-hidden="true"></i> ');
+                   // $this->insertItem($name, 3, strtolower($name), '<i class="fa fa-plus-square-o" aria-hidden="true"></i> ');
 
                     shell_exec('composer --working-dir=' . app_path("/") . ' dumpautoload');
                     Artisan::call('migrate');

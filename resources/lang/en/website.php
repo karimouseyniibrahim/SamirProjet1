@@ -62,4 +62,5 @@ return [
     'trajetlivreur' => '',
     'localisationlivreur' => '',
     'commandeproduit' => '',
+    'colis' => '',
 ];
