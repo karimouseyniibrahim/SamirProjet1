@@ -28,6 +28,12 @@ class ColisApi extends Controller
     public function update($id , ApiUpdateRequestColis $validation){
         return $this->updateItem($id , $validation);
     }
+    public function validation($id){
+        $fields = $this->model->find($id);
+        $fields->update(['valid'=>"true"]);
+            
+        return $fields;
+    }
 
     protected function checkLanguageBeforeReturn($data , $status_code = 200, $paginate = [])
     {

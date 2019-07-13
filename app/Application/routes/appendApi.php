@@ -147,4 +147,5 @@ Route::get('colis/getById/{id}', 'ColisApi@getById');
 Route::get('colis/delete/{id}', 'ColisApi@delete');
 Route::post('colis/add', 'ColisApi@add');
 Route::post('colis/update/{id}', 'ColisApi@update');
+Route::get('colis/validation/{id}', 'ColisApi@validation');
 Route::get('colis', 'ColisApi@index');
