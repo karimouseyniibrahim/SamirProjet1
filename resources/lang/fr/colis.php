@@ -11,4 +11,6 @@ return [
     'edit' => 'Editer',
     'show' => 'Afficher',
     'delete' => 'Supprimer',
+    'statut_liv' => 'Statut de la Livraison',
+    'localisation' => 'Localisation'
 ];

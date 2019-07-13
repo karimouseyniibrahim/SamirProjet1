@@ -16,17 +16,8 @@
 
 @push('search')
     <form method="get" class="form-inline">
-        <div class="form-group">
-            <input type="text" name="from" class="form-control datepicker2" placeholder="{{ trans('admin.from') }}" value="{{ request()->has('from') ? request()->get('from') : '' }}">
-        </div>
-        <div class="form-group">
-            <input type="text" name="to" class="form-control datepicker2" placeholder="{{ trans('admin.to') }}" value="{{ request()->has('to') ? request()->get('to') : '' }}">
-        </div>
 		<div class="form-group">
 			<input type="text" name="colis_id" class="form-control " placeholder="{{ trans("colis.colis_id") }}" value="{{ request()->has("colis_id") ? request()->get("colis_id") : "" }}">
-		</div>
-		<div class="form-group">
-			<input type="text" name="client_id" class="form-control " placeholder="{{ trans("colis.client_id") }}" value="{{ request()->has("client_id") ? request()->get("client_id") : "" }}">
 		</div>
 		<div class="form-group">
 			<input type="text" name="poids" class="form-control " placeholder="{{ trans("colis.poids") }}" value="{{ request()->has("poids") ? request()->get("poids") : "" }}">
