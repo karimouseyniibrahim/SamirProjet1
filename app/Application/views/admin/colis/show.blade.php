@@ -23,6 +23,14 @@
 				<th width="200">{{ trans("colis.volume") }}</th>
 					<td>{{ nl2br($item->volume) }}</td>
 				</tr>
+				<tr>
+				<th width="200">{{ trans("colis.statut_liv") }}</th>
+					<td>{{ nl2br($item->statut_liv) }}</td>
+				</tr>
+				<tr>
+				<th width="200">{{ trans("colis.localisation") }}</th>
+					<td>{{ nl2br($item->localisation) }}</td>
+				</tr>
 		</table>
 
         @include('admin.colis.buttons.delete' , ['id' => $item->id])

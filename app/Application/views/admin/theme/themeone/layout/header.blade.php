@@ -12,9 +12,11 @@
            @else
              <h2 class="pull-right">
            @endif
+           @if(user_can('App\Application\Controllers\Admin\ColisController', 'store'))
               <a href="{{ url('admin/'.$model.'/item') }}" class="btn bg-cyan btn-icon m-r-xs m-b-xs waves-effect">
                   <i class="material-icons">add</i> {{ trans('home.add') }} {{ ucfirst($title) }}
               </a>
+            @endif
        </span>
     @endif
     <div class="clearfix"></div>

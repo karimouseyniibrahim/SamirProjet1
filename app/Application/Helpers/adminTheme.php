@@ -127,6 +127,22 @@ function permissionArray()
     return array_keys($psermisions->permission);
 }
 
+function user_can($controller, $action)
+{
+    $psermisions = new  \App\Application\Controllers\Traits\UsePermissionTrait();
+    $psermisions->can(auth()->user());
+    if (!array_key_exists($controller, $psermisions->permission)) {
+        return false;
+    }
+    if (!array_key_exists($action, $psermisions->permission[$controller])) {
+        return false;
+    }
+    if (array_intersect([$action => true], $psermisions->permission[$controller])) {
+        return true;
+    } 
+    return false;
+}
+
 function logo()
 {
     $l = \App\Application\Model\Setting::find(3);
