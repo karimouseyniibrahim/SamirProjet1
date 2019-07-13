@@ -8,6 +8,7 @@ use App\Application\Model\Home;
 use App\Application\Model\User;
 use App\Application\Repository\InterFaces\HomeInterface;
 use Yajra\Datatables\Request;
+use App\Application\DataTables\ColissDataTable;
 use Alert;
 
 class HomeController extends AbstractController
@@ -34,6 +35,10 @@ class HomeController extends AbstractController
 
     public function fileManager(){
         return view('admin.file-manager.index');
+    }
+
+    public function clientColis(ColissDataTable $dataTable){
+        return $dataTable->render('admin.colis.index');
     }
 
 }

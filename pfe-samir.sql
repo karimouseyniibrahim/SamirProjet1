@@ -237,7 +237,7 @@ INSERT INTO `items` (`id`, `name`, `link`, `type`, `icon`, `parent_id`, `order`,
 	(108, '{"fr":"BureauPoste","ar":"BureauPoste"}', '/admin/bureauposte', 'self', '<i class="material-icons">control_point</i>', 55, 3, '["App\\\\Application\\\\Controllers\\\\Admin\\\\BureauPosteController"]', 1, '2019-05-25 11:10:22', '2019-05-25 14:38:06'),
 	(110, '{"fr":"TrajetLivreur","ar":"TrajetLivreur"}', '/admin/trajetlivreur', 'self', '<i class="material-icons">control_point</i>', 55, 4, '["App\\\\Application\\\\Controllers\\\\Admin\\\\TrajetLivreurController"]', 1, '2019-05-25 14:19:07', '2019-05-25 14:38:06'),
 	(112, '{"fr":"Localisationlivreur","ar":"Localisationlivreur"}', '/admin/localisationlivreur', 'self', '<i class="material-icons">control_point</i>', 55, 5, '["App\\\\Application\\\\Controllers\\\\Admin\\\\LocalisationlivreurController"]', 1, '2019-05-25 14:22:21', '2019-05-25 14:38:06'),
-	(114, '{"fr":"Mes Livraisons","ar":"Management"}', '/client/livraisons', 'self', '<i class="material-icons">shopping_cart</i>', 0, 0, '["App\\\\Application\\\\Controllers\\\\Admin\\\\HomeController"]', 1, '2019-06-08 21:49:15', '2019-06-08 21:55:00'),
+	(114, '{"fr":"Mes Livraisons","ar":"Management"}', '/admin/mescolis', 'self', '<i class="material-icons">shopping_cart</i>', 0, 0, '["App\\\\Application\\\\Controllers\\\\Admin\\\\HomeController"]', 1, '2019-06-08 21:49:15', '2019-06-08 21:55:00'),
 	(130, '{"fr":"Colis","ar":"Colis"}', '/admin/colis', '', '<i class="material-icons">control_point</i>', 0, 37, '["App\\\\Application\\\\Controllers\\\\Admin\\\\ColisController"]', 1, '2019-06-12 12:37:54', '2019-06-12 12:37:54');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 
@@ -294,9 +294,9 @@ CREATE TABLE IF NOT EXISTS `link_views` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.link_views : ~129 rows (environ)
+-- Listage des données de la table pfe-samir.link_views : ~130 rows (environ)
 DELETE FROM `link_views`;
 /*!40000 ALTER TABLE `link_views` DISABLE KEYS */;
 INSERT INTO `link_views` (`id`, `link_id`, `language`, `browser`, `browser_version`, `os`, `os_version`, `ip`, `created_at`, `updated_at`) VALUES
@@ -472,7 +472,9 @@ INSERT INTO `link_views` (`id`, `link_id`, `language`, `browser`, `browser_versi
 	(170, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:17', '2019-07-10 18:32:17'),
 	(171, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:21', '2019-07-10 18:32:21'),
 	(172, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:37', '2019-07-10 18:32:37'),
-	(173, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-13 12:33:42', '2019-07-13 12:33:42');
+	(173, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-13 12:33:42', '2019-07-13 12:33:42'),
+	(174, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-13 12:42:46', '2019-07-13 12:42:46'),
+	(175, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-13 12:56:38', '2019-07-13 12:56:38');
 /*!40000 ALTER TABLE `link_views` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. localisationlivreur
@@ -506,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1771 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1772 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.logs : ~1 714 rows (environ)
 DELETE FROM `logs`;
@@ -2281,7 +2283,8 @@ INSERT INTO `logs` (`id`, `action`, `model`, `status`, `messages`, `user_id`, `c
 	(1767, 'Visit Create Page', 'colis', 'Success', '', 20, '2019-06-12 14:19:50', '2019-06-12 14:19:50'),
 	(1768, 'Visit Create Page', 'localisationlivreur', 'Success', '', 1, '2019-06-12 22:20:00', '2019-06-12 22:20:00'),
 	(1769, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["20"]}', 21, '2019-07-09 12:07:00', '2019-07-09 12:07:00'),
-	(1770, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["20"]}', 22, '2019-07-10 14:42:15', '2019-07-10 14:42:15');
+	(1770, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["20"]}', 22, '2019-07-10 14:42:15', '2019-07-10 14:42:15'),
+	(1771, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-07-13 12:58:14', '2019-07-13 12:58:14');
 /*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. menu
@@ -2459,7 +2462,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=876 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=877 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.permissions : ~514 rows (environ)
 DELETE FROM `permissions`;
@@ -2982,7 +2985,8 @@ INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `controller_name
 	(872, 'users-websitestore-ColisController', 'App-Application-Admin-Colis-Controller-store', 'Allow admin on store in controller Colis Controller', 'ColisController', 'store', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
 	(873, 'users-websiteupdate-ColisController', 'App-Application-Admin-Colis-Controller-update', 'Allow admin on update in controller Colis Controller', 'ColisController', 'update', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
 	(874, 'users-websitegetById-ColisController', 'App-Application-Admin-Colis-Controller-getById', 'Allow admin on getById in controller Colis Controller', 'ColisController', 'getById', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
-	(875, 'users-websitedestroy-ColisController', 'App-Application-Admin-Colis-Controller-destroy', 'Allow admin on destroy in controller Colis Controller', 'ColisController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55');
+	(875, 'users-websitedestroy-ColisController', 'App-Application-Admin-Colis-Controller-destroy', 'Allow admin on destroy in controller Colis Controller', 'ColisController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(876, 'clientColis-ColisController', 'App-Application-Admin-Colis-Controller-clientColis', 'Allow admin on clientColis in controller Colis Controller', 'HomeController', 'clientColis', 'admin', 1, 'App\\Application\\Controllers\\Admin\\HomeController', '2019-06-12 12:37:55', '2019-06-12 12:37:55');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. permission_group
@@ -2996,7 +3000,7 @@ CREATE TABLE IF NOT EXISTS `permission_group` (
   KEY `permission_group_group_id_foreign` (`group_id`),
   CONSTRAINT `permission_group_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE,
   CONSTRAINT `permission_group_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=659 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=661 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.permission_group : ~278 rows (environ)
 DELETE FROM `permission_group`;
@@ -3306,7 +3310,9 @@ INSERT INTO `permission_group` (`id`, `permission_id`, `group_id`) VALUES
 	(655, 860, 6),
 	(656, 861, 6),
 	(657, 862, 6),
-	(658, 863, 6);
+	(658, 863, 6),
+	(659, 876, 6),
+	(660, 876, 5);
 /*!40000 ALTER TABLE `permission_group` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. permission_role

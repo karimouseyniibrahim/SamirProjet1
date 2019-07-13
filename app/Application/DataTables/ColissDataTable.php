@@ -35,7 +35,11 @@ class ColissDataTable extends DataTable
         $query = Colis::query();
 
         if (auth()->user()->group_id != 1) {
-          $query = $query->where('partenaire_id' , auth()->user()->id);
+            if (auth()->user()->group_id == 5) {
+                $query = $query->where('client_id' , auth()->user()->id);
+            } else {
+                $query = $query->where('partenaire_id' , auth()->user()->id);
+            }
         }
         
 

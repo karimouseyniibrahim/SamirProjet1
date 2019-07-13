@@ -213,3 +213,5 @@ Route::post('colis/item/{id}' , 'ColisController@update');
 Route::get('colis/{id}/delete' , 'ColisController@destroy');
 Route::get('colis/{id}/view' , 'ColisController@getById');
 Route::get('colis/pluck', 'ColisController@pluck');
+
+Route::get('mescolis' , 'HomeController@clientColis');
