@@ -38,6 +38,30 @@ INSERT INTO `bureauposte` (`id`, `name`, `adresse`, `tel`, `email`, `image`, `cr
 	(1, '{"fr":"BureauPoste1","ar":"BureauPoste1"}', 'RU04', '0256593969', 'ibrahim.karimouseyni@yahoo.com', '39756_1558788967.jpg', '2019-05-25 12:56:08', '2019-05-25 12:56:08');
 /*!40000 ALTER TABLE `bureauposte` ENABLE KEYS */;
 
+-- Listage de la structure de la table pfe-samir. colis
+DROP TABLE IF EXISTS `colis`;
+CREATE TABLE IF NOT EXISTS `colis` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `colis_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `client_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `poids` double DEFAULT NULL,
+  `volume` double DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `partenaire_id` int(11) DEFAULT NULL,
+  `adresse_liv` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `valid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table pfe-samir.colis : ~2 rows (environ)
+DELETE FROM `colis`;
+/*!40000 ALTER TABLE `colis` DISABLE KEYS */;
+INSERT INTO `colis` (`id`, `colis_id`, `client_id`, `poids`, `volume`, `created_at`, `updated_at`, `partenaire_id`, `adresse_liv`, `valid`) VALUES
+	(1, 'COLIS-001', '18', 5, 16, '2019-06-12 13:27:16', '2019-06-12 13:27:16', 20, NULL, NULL),
+	(2, 'COLIS-002', '18', 5, 20, '2019-06-12 13:42:00', '2019-06-12 13:42:00', 20, NULL, NULL);
+/*!40000 ALTER TABLE `colis` ENABLE KEYS */;
+
 -- Listage de la structure de la table pfe-samir. command
 DROP TABLE IF EXISTS `command`;
 CREATE TABLE IF NOT EXISTS `command` (
@@ -48,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `command` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.command : ~13 rows (environ)
 DELETE FROM `command`;
@@ -66,8 +90,31 @@ INSERT INTO `command` (`id`, `name`, `options`, `command`, `created_at`, `update
 	(23, 'ZoneActivite', 'nameZone:string::false', 'laraflat:admin_model', '2019-05-25 11:07:02', '2019-05-25 11:07:02'),
 	(24, 'BureauPoste', 'name:string::true,adresse:longText::false,tel:string::false,email:string:email:false,image:string:image:false', 'laraflat:admin_model', '2019-05-25 11:10:18', '2019-05-25 11:10:18'),
 	(25, 'TrajetLivreur', 'user_id:integer::false,zoneactivite_id:integer::false', 'laraflat:admin_model', '2019-05-25 14:18:42', '2019-05-25 14:18:42'),
-	(26, 'Localisationlivreur', 'user_id:integer::false,trajetlivreur_id:integer::false,status:string::false', 'laraflat:admin_model', '2019-05-25 14:22:17', '2019-05-25 14:22:17');
+	(26, 'Localisationlivreur', 'user_id:integer::false,trajetlivreur_id:integer::false,status:string::false', 'laraflat:admin_model', '2019-05-25 14:22:17', '2019-05-25 14:22:17'),
+	(37, 'Colis', 'colis_id:string:required:false,client_id:string:required:false,poids:double:required:false,volume:double:required:false', 'laraflat:admin_model', '2019-06-12 12:37:53', '2019-06-12 12:37:53');
 /*!40000 ALTER TABLE `command` ENABLE KEYS */;
+
+-- Listage de la structure de la table pfe-samir. commandeproduit
+DROP TABLE IF EXISTS `commandeproduit`;
+CREATE TABLE IF NOT EXISTS `commandeproduit` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `modeEnvoi` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `devis` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `typecommande` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fraistransport` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paye` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dateacheminer` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `delaislivraison` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `datedebutacheminement` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table pfe-samir.commandeproduit : ~0 rows (environ)
+DELETE FROM `commandeproduit`;
+/*!40000 ALTER TABLE `commandeproduit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commandeproduit` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. contacts
 DROP TABLE IF EXISTS `contacts`;
@@ -102,14 +149,16 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.groups : ~2 rows (environ)
+-- Listage des données de la table pfe-samir.groups : ~4 rows (environ)
 DELETE FROM `groups`;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
 INSERT INTO `groups` (`id`, `name`, `slug`, `description`, `created_at`, `updated_at`) VALUES
 	(1, 'Admin', 'admin', 'Access to User , permission , role , groups roles', '2019-03-08 11:47:46', '2019-03-08 11:47:46'),
-	(5, 'Client', 'client', NULL, '2019-06-08 13:57:56', '2019-06-08 13:57:56');
+	(5, 'Client', 'client', NULL, '2019-06-08 13:57:56', '2019-06-08 13:57:56'),
+	(6, 'Partenaire', 'partenaire', NULL, '2019-06-12 12:09:03', '2019-06-12 12:09:03'),
+	(7, 'Agent', 'agent', NULL, '2019-06-12 12:09:27', '2019-06-12 12:09:27');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. group_role
@@ -149,9 +198,9 @@ CREATE TABLE IF NOT EXISTS `items` (
   PRIMARY KEY (`id`),
   KEY `items_menu_id_foreign` (`menu_id`),
   CONSTRAINT `items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.items : ~35 rows (environ)
+-- Listage des données de la table pfe-samir.items : ~36 rows (environ)
 DELETE FROM `items`;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
 INSERT INTO `items` (`id`, `name`, `link`, `type`, `icon`, `parent_id`, `order`, `controller_path`, `menu_id`, `created_at`, `updated_at`) VALUES
@@ -183,14 +232,13 @@ INSERT INTO `items` (`id`, `name`, `link`, `type`, `icon`, `parent_id`, `order`,
 	(32, '{"en":"Sidebar Widget","fr":"Gadgets Sidebar","ar":"السيد بار"}', 'admin/theme/sidebar', 'self', NULL, 28, 3, '["App\\\\Application\\\\Controllers\\\\Admin\\\\Themes\\\\ThemeController"]', 1, NULL, '2019-05-25 14:38:07'),
 	(33, '{"en":"Export \\\\ Import Models","fr":"Exporter \\\\ Importer des Modèles","ar":"رفع \\/ استخراج المديولات"}', 'admin/exportImport', 'blank', NULL, 21, 6, '["App\\\\Application\\\\Controllers\\\\Admin\\\\CommandsController"]', 1, NULL, '2019-05-25 14:38:07'),
 	(55, '{"fr":"Gestion","ar":"Management"}', '/admin/management', 'self', '<i class="material-icons">control_point</i>', 0, 1, '["App\\\\Application\\\\Controllers\\\\Admin\\\\TrajetController"]', 1, '2019-03-07 16:04:52', '2019-06-08 21:48:36'),
-	(100, '{"fr":"Produits","ar":"Produits"}', '/admin/produits', 'self', '<i class="material-icons">control_point</i>', 55, 0, '["App\\\\Application\\\\Controllers\\\\Admin\\\\ProduitsController"]', 1, '2019-05-25 10:39:40', '2019-05-25 14:38:06'),
 	(104, '{"fr":"Trajet","ar":"Trajet"}', '/admin/trajet', 'self', '<i class="material-icons">control_point</i>', 55, 1, '["App\\\\Application\\\\Controllers\\\\Admin\\\\TrajetController"]', 1, '2019-05-25 11:05:18', '2019-05-25 14:38:06'),
 	(106, '{"fr":"ZoneActivite","ar":"ZoneActivite"}', '/admin/zoneactivite', 'self', '<i class="material-icons">control_point</i>', 55, 2, '["App\\\\Application\\\\Controllers\\\\Admin\\\\ZoneActiviteController"]', 1, '2019-05-25 11:07:06', '2019-05-25 14:38:06'),
 	(108, '{"fr":"BureauPoste","ar":"BureauPoste"}', '/admin/bureauposte', 'self', '<i class="material-icons">control_point</i>', 55, 3, '["App\\\\Application\\\\Controllers\\\\Admin\\\\BureauPosteController"]', 1, '2019-05-25 11:10:22', '2019-05-25 14:38:06'),
 	(110, '{"fr":"TrajetLivreur","ar":"TrajetLivreur"}', '/admin/trajetlivreur', 'self', '<i class="material-icons">control_point</i>', 55, 4, '["App\\\\Application\\\\Controllers\\\\Admin\\\\TrajetLivreurController"]', 1, '2019-05-25 14:19:07', '2019-05-25 14:38:06'),
 	(112, '{"fr":"Localisationlivreur","ar":"Localisationlivreur"}', '/admin/localisationlivreur', 'self', '<i class="material-icons">control_point</i>', 55, 5, '["App\\\\Application\\\\Controllers\\\\Admin\\\\LocalisationlivreurController"]', 1, '2019-05-25 14:22:21', '2019-05-25 14:38:06'),
 	(114, '{"fr":"Mes Livraisons","ar":"Management"}', '/client/livraisons', 'self', '<i class="material-icons">shopping_cart</i>', 0, 0, '["App\\\\Application\\\\Controllers\\\\Admin\\\\HomeController"]', 1, '2019-06-08 21:49:15', '2019-06-08 21:55:00'),
-	(115, '{"fr":"Nos Produits"}', '/admin/produits', 'self', '<i class="material-icons">control_point</i>', 0, 0, '["App\\\\Application\\\\Controllers\\\\Admin\\\\ProduitsController"]', 1, '2019-06-09 23:49:24', '2019-06-09 23:49:24');
+	(130, '{"fr":"Colis","ar":"Colis"}', '/admin/colis', '', '<i class="material-icons">control_point</i>', 0, 37, '["App\\\\Application\\\\Controllers\\\\Admin\\\\ColisController"]', 1, '2019-06-12 12:37:54', '2019-06-12 12:37:54');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. links
@@ -203,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `links` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `links_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.links : ~18 rows (environ)
 DELETE FROM `links`;
@@ -227,7 +275,9 @@ INSERT INTO `links` (`id`, `url`, `slug`, `created_at`, `updated_at`) VALUES
 	(16, 'http://127.0.0.1:8000/fr/password/reset', 'SwI4RU', '2019-06-05 17:10:02', '2019-06-05 17:10:02'),
 	(17, 'http://127.0.0.1:8000/fr/register', 'WpMxDt', '2019-06-05 17:20:20', '2019-06-05 17:20:20'),
 	(18, 'http://127.0.0.1:8000/fr', 'P8aQfl', '2019-06-05 18:33:20', '2019-06-05 18:33:20'),
-	(19, 'http://samir-pfe.local/fr/login', 'tGc6cl', '2019-06-09 14:21:42', '2019-06-09 14:21:42');
+	(19, 'http://samir-pfe.local/fr/login', 'tGc6cl', '2019-06-09 14:21:42', '2019-06-09 14:21:42'),
+	(20, 'http://samir-pfe.local/fr/register', 'dVSta7', '2019-06-10 00:39:06', '2019-06-10 00:39:06'),
+	(21, 'http://samir-pfe.local/fr/password/reset', 'c74JMM', '2019-06-10 00:39:22', '2019-06-10 00:39:22');
 /*!40000 ALTER TABLE `links` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. link_views
@@ -244,9 +294,9 @@ CREATE TABLE IF NOT EXISTS `link_views` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.link_views : ~133 rows (environ)
+-- Listage des données de la table pfe-samir.link_views : ~129 rows (environ)
 DELETE FROM `link_views`;
 /*!40000 ALTER TABLE `link_views` DISABLE KEYS */;
 INSERT INTO `link_views` (`id`, `link_id`, `language`, `browser`, `browser_version`, `os`, `os_version`, `ip`, `created_at`, `updated_at`) VALUES
@@ -385,7 +435,44 @@ INSERT INTO `link_views` (`id`, `link_id`, `language`, `browser`, `browser_versi
 	(133, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-09 23:30:41', '2019-06-09 23:30:41'),
 	(134, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-09 23:31:27', '2019-06-09 23:31:27'),
 	(135, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-09 23:32:07', '2019-06-09 23:32:07'),
-	(136, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-09 23:33:31', '2019-06-09 23:33:31');
+	(136, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-09 23:33:31', '2019-06-09 23:33:31'),
+	(137, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:39:04', '2019-06-10 00:39:04'),
+	(138, '20', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:39:07', '2019-06-10 00:39:07'),
+	(139, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:39:20', '2019-06-10 00:39:20'),
+	(140, '21', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:39:22', '2019-06-10 00:39:22'),
+	(141, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:39:25', '2019-06-10 00:39:25'),
+	(142, '20', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:40:38', '2019-06-10 00:40:38'),
+	(143, '20', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-10 00:41:13', '2019-06-10 00:41:13'),
+	(144, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-11 10:20:52', '2019-06-11 10:20:52'),
+	(145, '19', 'fr', 'Chrome', '75.0.3770.80', 'Windows', '7', '127.0.0.1', '2019-06-12 12:05:19', '2019-06-12 12:05:19'),
+	(146, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-12 13:38:02', '2019-06-12 13:38:02'),
+	(147, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-12 16:04:13', '2019-06-12 16:04:13'),
+	(148, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-12 22:20:41', '2019-06-12 22:20:41'),
+	(149, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-12 22:21:10', '2019-06-12 22:21:10'),
+	(150, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-13 09:21:24', '2019-06-13 09:21:24'),
+	(151, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-13 10:05:42', '2019-06-13 10:05:42'),
+	(152, '20', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-13 10:06:01', '2019-06-13 10:06:01'),
+	(153, '19', 'fr', 'Firefox', '67.0', 'Windows', '7', '127.0.0.1', '2019-06-13 10:06:04', '2019-06-13 10:06:04'),
+	(154, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-04 09:18:57', '2019-07-04 09:18:57'),
+	(155, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-04 09:22:34', '2019-07-04 09:22:34'),
+	(156, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-04 09:23:33', '2019-07-04 09:23:33'),
+	(157, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-04 09:27:11', '2019-07-04 09:27:11'),
+	(158, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:05:04', '2019-07-09 12:05:04'),
+	(159, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:05:19', '2019-07-09 12:05:19'),
+	(160, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:05:59', '2019-07-09 12:05:59'),
+	(161, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:06:16', '2019-07-09 12:06:16'),
+	(162, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:08:23', '2019-07-09 12:08:23'),
+	(163, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-09 12:08:30', '2019-07-09 12:08:30'),
+	(164, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:39:31', '2019-07-10 14:39:31'),
+	(165, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:39:34', '2019-07-10 14:39:34'),
+	(166, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:40:28', '2019-07-10 14:40:28'),
+	(167, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:40:32', '2019-07-10 14:40:32'),
+	(168, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:40:34', '2019-07-10 14:40:34'),
+	(169, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 14:40:41', '2019-07-10 14:40:41'),
+	(170, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:17', '2019-07-10 18:32:17'),
+	(171, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:21', '2019-07-10 18:32:21'),
+	(172, '20', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-10 18:32:37', '2019-07-10 18:32:37'),
+	(173, '19', 'fr', 'Chrome', '75.0.3770.100', 'Windows', '7', '127.0.0.1', '2019-07-13 12:33:42', '2019-07-13 12:33:42');
 /*!40000 ALTER TABLE `link_views` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. localisationlivreur
@@ -419,9 +506,9 @@ CREATE TABLE IF NOT EXISTS `logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1726 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1771 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.logs : ~1 716 rows (environ)
+-- Listage des données de la table pfe-samir.logs : ~1 714 rows (environ)
 DELETE FROM `logs`;
 /*!40000 ALTER TABLE `logs` DISABLE KEYS */;
 INSERT INTO `logs` (`id`, `action`, `model`, `status`, `messages`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -2149,7 +2236,52 @@ INSERT INTO `logs` (`id`, `action`, `model`, `status`, `messages`, `user_id`, `c
 	(1722, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-09 23:49:25', '2019-06-09 23:49:25'),
 	(1723, 'Visit Edit Page', 'groups', 'Success', '{"Edit Id":["5"]}', 1, '2019-06-09 23:52:38', '2019-06-09 23:52:38'),
 	(1724, 'Update', 'groups', 'Success', '{"Updated id":["5"]}', 1, '2019-06-09 23:53:16', '2019-06-09 23:53:16'),
-	(1725, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-09 23:59:31', '2019-06-09 23:59:31');
+	(1725, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-09 23:59:31', '2019-06-09 23:59:31'),
+	(1726, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["19"]}', 19, '2019-06-10 00:42:00', '2019-06-10 00:42:00'),
+	(1727, 'Visit Edit Page', 'groups', 'Success', '{"Edit Id":["5"]}', 19, '2019-06-10 00:42:35', '2019-06-10 00:42:35'),
+	(1728, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["19"]}', 1, '2019-06-11 10:20:09', '2019-06-11 10:20:09'),
+	(1729, 'Visit Create Page', 'groups', 'Success', '', 1, '2019-06-12 12:06:24', '2019-06-12 12:06:24'),
+	(1730, 'Visit Create Page', 'groups', 'Success', '', 1, '2019-06-12 12:06:41', '2019-06-12 12:06:41'),
+	(1731, 'Create', 'groups', 'Success', '{"New id":[6]}', 1, '2019-06-12 12:09:03', '2019-06-12 12:09:03'),
+	(1732, 'Visit Create Page', 'groups', 'Success', '', 1, '2019-06-12 12:09:13', '2019-06-12 12:09:13'),
+	(1733, 'Create', 'groups', 'Success', '{"New id":[7]}', 1, '2019-06-12 12:09:27', '2019-06-12 12:09:27'),
+	(1734, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 12:38:15', '2019-06-12 12:38:15'),
+	(1735, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 12:42:10', '2019-06-12 12:42:10'),
+	(1736, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 12:46:00', '2019-06-12 12:46:00'),
+	(1737, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 12:47:21', '2019-06-12 12:47:21'),
+	(1738, 'Visit Edit Page', 'produits', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 12:48:49', '2019-06-12 12:48:49'),
+	(1739, 'Visit Create Page', 'produits', 'Success', '', 1, '2019-06-12 12:48:57', '2019-06-12 12:48:57'),
+	(1740, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["18"]}', 1, '2019-06-12 12:49:50', '2019-06-12 12:49:50'),
+	(1741, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 12:57:47', '2019-06-12 12:57:47'),
+	(1742, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:14:30', '2019-06-12 13:14:30'),
+	(1743, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:16:37', '2019-06-12 13:16:37'),
+	(1744, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:16:37', '2019-06-12 13:16:37'),
+	(1745, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:17:19', '2019-06-12 13:17:19'),
+	(1746, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:17:44', '2019-06-12 13:17:44'),
+	(1747, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:18:44', '2019-06-12 13:18:44'),
+	(1748, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:19:12', '2019-06-12 13:19:12'),
+	(1749, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:19:30', '2019-06-12 13:19:30'),
+	(1750, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:19:30', '2019-06-12 13:19:30'),
+	(1751, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:19:41', '2019-06-12 13:19:41'),
+	(1752, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:19:41', '2019-06-12 13:19:41'),
+	(1753, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:24:14', '2019-06-12 13:24:14'),
+	(1754, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:24:46', '2019-06-12 13:24:46'),
+	(1755, 'Visit Create Page', 'colis', 'Success', '', 1, '2019-06-12 13:26:46', '2019-06-12 13:26:46'),
+	(1756, 'Create', 'colis', 'Success', '{"New id":[1]}', 1, '2019-06-12 13:27:16', '2019-06-12 13:27:16'),
+	(1757, 'Visit Create Page', 'users', 'Success', '', 1, '2019-06-12 13:36:52', '2019-06-12 13:36:52'),
+	(1758, 'Create', 'users', 'Success', '{"New id":[20]}', 1, '2019-06-12 13:37:40', '2019-06-12 13:37:40'),
+	(1759, 'Visit Edit Page', 'groups', 'Success', '{"Edit Id":["6"]}', 1, '2019-06-12 13:38:47', '2019-06-12 13:38:47'),
+	(1760, 'Update', 'groups', 'Success', '{"Updated id":["6"]}', 1, '2019-06-12 13:40:57', '2019-06-12 13:40:57'),
+	(1761, 'Visit Create Page', 'colis', 'Success', '', 20, '2019-06-12 13:41:44', '2019-06-12 13:41:44'),
+	(1762, 'Create', 'colis', 'Success', '{"New id":[2]}', 20, '2019-06-12 13:42:00', '2019-06-12 13:42:00'),
+	(1763, 'Visit Edit Page', 'colis', 'Success', '{"Edit Id":["1"]}', 20, '2019-06-12 13:48:14', '2019-06-12 13:48:14'),
+	(1764, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 13:52:49', '2019-06-12 13:52:49'),
+	(1765, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 13:52:55', '2019-06-12 13:52:55'),
+	(1766, 'Visit Edit Page', 'menu', 'Success', '{"Edit Id":["1"]}', 1, '2019-06-12 13:53:09', '2019-06-12 13:53:09'),
+	(1767, 'Visit Create Page', 'colis', 'Success', '', 20, '2019-06-12 14:19:50', '2019-06-12 14:19:50'),
+	(1768, 'Visit Create Page', 'localisationlivreur', 'Success', '', 1, '2019-06-12 22:20:00', '2019-06-12 22:20:00'),
+	(1769, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["20"]}', 21, '2019-07-09 12:07:00', '2019-07-09 12:07:00'),
+	(1770, 'Visit Edit Page', 'users', 'Success', '{"Edit Id":["20"]}', 22, '2019-07-10 14:42:15', '2019-07-10 14:42:15');
 /*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. menu
@@ -2176,7 +2308,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table pfe-samir.migrations : ~40 rows (environ)
 DELETE FROM `migrations`;
@@ -2221,7 +2353,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(45, '2019_05_25_1558782626_create_zoneactivite_table', 16),
 	(46, '2019_05_25_1558786313_create_trajet_table', 17),
 	(49, '2019_05_25_1558793934_create_trajetlivreur_table', 18),
-	(50, '2019_05_25_1558794137_create_localisationlivreur_table', 19);
+	(50, '2019_05_25_1558794137_create_localisationlivreur_table', 19),
+	(51, '2019_06_03_1559558635_create_commandeproduit_table', 20),
+	(53, '2019_06_12_1560343074_create_colis_table', 21);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. news
@@ -2325,9 +2459,9 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=819 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=876 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.permissions : ~702 rows (environ)
+-- Listage des données de la table pfe-samir.permissions : ~514 rows (environ)
 DELETE FROM `permissions`;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `controller_name`, `method_name`, `controller_type`, `permission`, `namespace`, `created_at`, `updated_at`) VALUES
@@ -2829,7 +2963,26 @@ INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `controller_name
 	(815, 'users-websitestore-LocalisationlivreurController', 'App-Application-Admin-Localisationlivreur-Controller-store', 'Allow admin on store in controller Localisationlivreur Controller', 'LocalisationlivreurController', 'store', 'website', 1, 'App\\Application\\Controllers\\Website\\LocalisationlivreurController', '2019-05-25 14:22:22', '2019-05-25 14:22:22'),
 	(816, 'users-websiteupdate-LocalisationlivreurController', 'App-Application-Admin-Localisationlivreur-Controller-update', 'Allow admin on update in controller Localisationlivreur Controller', 'LocalisationlivreurController', 'update', 'website', 1, 'App\\Application\\Controllers\\Website\\LocalisationlivreurController', '2019-05-25 14:22:22', '2019-05-25 14:22:22'),
 	(817, 'users-websitegetById-LocalisationlivreurController', 'App-Application-Admin-Localisationlivreur-Controller-getById', 'Allow admin on getById in controller Localisationlivreur Controller', 'LocalisationlivreurController', 'getById', 'website', 1, 'App\\Application\\Controllers\\Website\\LocalisationlivreurController', '2019-05-25 14:22:22', '2019-05-25 14:22:22'),
-	(818, 'users-websitedestroy-LocalisationlivreurController', 'App-Application-Admin-Localisationlivreur-Controller-destroy', 'Allow admin on destroy in controller Localisationlivreur Controller', 'LocalisationlivreurController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\LocalisationlivreurController', '2019-05-25 14:22:22', '2019-05-25 14:22:22');
+	(818, 'users-websitedestroy-LocalisationlivreurController', 'App-Application-Admin-Localisationlivreur-Controller-destroy', 'Allow admin on destroy in controller Localisationlivreur Controller', 'LocalisationlivreurController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\LocalisationlivreurController', '2019-05-25 14:22:22', '2019-05-25 14:22:22'),
+	(857, 'index-ColisController', 'App-Application-Admin-Colis-Controller-index', 'Allow admin on index in controller Colis Controller', 'ColisController', 'index', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(858, 'show-ColisController', 'App-Application-Admin-Colis-Controller-show', 'Allow admin on show in controller Colis Controller', 'ColisController', 'show', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(859, 'store-ColisController', 'App-Application-Admin-Colis-Controller-store', 'Allow admin on store in controller Colis Controller', 'ColisController', 'store', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(860, 'update-ColisController', 'App-Application-Admin-Colis-Controller-update', 'Allow admin on update in controller Colis Controller', 'ColisController', 'update', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(861, 'getById-ColisController', 'App-Application-Admin-Colis-Controller-getById', 'Allow admin on getById in controller Colis Controller', 'ColisController', 'getById', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(862, 'destroy-ColisController', 'App-Application-Admin-Colis-Controller-destroy', 'Allow admin on destroy in controller Colis Controller', 'ColisController', 'destroy', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:54', '2019-06-12 12:37:54'),
+	(863, 'pluck-ColisController', 'App-Application-Admin-Colis-Controller-pluck', 'Allow admin on pluck in controller Colis Controller', 'ColisController', 'pluck', 'admin', 1, 'App\\Application\\Controllers\\Admin\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(864, 'admin-website-index-ColisController', 'App-Application-Admin-Colis-Controller-index', 'Allow admin on index in controller Colis Controller', 'ColisController', 'index', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(865, 'admin-website-show-ColisController', 'App-Application-Admin-Colis-Controller-show', 'Allow admin on show in controller Colis Controller', 'ColisController', 'show', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(866, 'admin-website-store-ColisController', 'App-Application-Admin-Colis-Controller-store', 'Allow admin on store in controller Colis Controller', 'ColisController', 'store', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(867, 'admin-website-update-ColisController', 'App-Application-Admin-Colis-Controller-update', 'Allow admin on update in controller Colis Controller', 'ColisController', 'update', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(868, 'admin-website-getById-ColisController', 'App-Application-Admin-Colis-Controller-getById', 'Allow admin on getById in controller Colis Controller', 'ColisController', 'getById', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(869, 'admin-website-destroy-ColisController', 'App-Application-Admin-Colis-Controller-destroy', 'Allow admin on destroy in controller Colis Controller', 'ColisController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(870, 'users-websiteindex-ColisController', 'App-Application-Admin-Colis-Controller-index', 'Allow admin on index in controller Colis Controller', 'ColisController', 'index', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(871, 'users-websiteshow-ColisController', 'App-Application-Admin-Colis-Controller-show', 'Allow admin on show in controller Colis Controller', 'ColisController', 'show', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(872, 'users-websitestore-ColisController', 'App-Application-Admin-Colis-Controller-store', 'Allow admin on store in controller Colis Controller', 'ColisController', 'store', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(873, 'users-websiteupdate-ColisController', 'App-Application-Admin-Colis-Controller-update', 'Allow admin on update in controller Colis Controller', 'ColisController', 'update', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(874, 'users-websitegetById-ColisController', 'App-Application-Admin-Colis-Controller-getById', 'Allow admin on getById in controller Colis Controller', 'ColisController', 'getById', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55'),
+	(875, 'users-websitedestroy-ColisController', 'App-Application-Admin-Colis-Controller-destroy', 'Allow admin on destroy in controller Colis Controller', 'ColisController', 'destroy', 'website', 1, 'App\\Application\\Controllers\\Website\\ColisController', '2019-06-12 12:37:55', '2019-06-12 12:37:55');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. permission_group
@@ -2843,9 +2996,9 @@ CREATE TABLE IF NOT EXISTS `permission_group` (
   KEY `permission_group_group_id_foreign` (`group_id`),
   CONSTRAINT `permission_group_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE,
   CONSTRAINT `permission_group_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=600 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=659 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.permission_group : ~304 rows (environ)
+-- Listage des données de la table pfe-samir.permission_group : ~278 rows (environ)
 DELETE FROM `permission_group`;
 /*!40000 ALTER TABLE `permission_group` DISABLE KEYS */;
 INSERT INTO `permission_group` (`id`, `permission_id`, `group_id`) VALUES
@@ -3126,7 +3279,34 @@ INSERT INTO `permission_group` (`id`, `permission_id`, `group_id`) VALUES
 	(596, 693, 5),
 	(597, 694, 5),
 	(598, 686, 5),
-	(599, 687, 5);
+	(599, 687, 5),
+	(632, 857, 1),
+	(633, 858, 1),
+	(634, 859, 1),
+	(635, 860, 1),
+	(636, 861, 1),
+	(637, 862, 1),
+	(638, 863, 1),
+	(639, 864, 1),
+	(640, 865, 1),
+	(641, 866, 1),
+	(642, 867, 1),
+	(643, 868, 1),
+	(644, 869, 1),
+	(645, 870, 5),
+	(646, 871, 5),
+	(647, 872, 5),
+	(648, 873, 5),
+	(649, 874, 5),
+	(650, 875, 5),
+	(651, 45, 6),
+	(652, 857, 6),
+	(653, 858, 6),
+	(654, 859, 6),
+	(655, 860, 6),
+	(656, 861, 6),
+	(657, 862, 6),
+	(658, 863, 6);
 /*!40000 ALTER TABLE `permission_group` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. permission_role
@@ -3324,14 +3504,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_api_token_unique` (`api_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table pfe-samir.users : ~2 rows (environ)
+-- Listage des données de la table pfe-samir.users : ~5 rows (environ)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `group_id`, `api_token`, `remember_token`, `created_at`, `updated_at`, `image`) VALUES
-	(1, 'admin', 'admin@gmail.com', '$2y$10$TENvveevcPmcHMsvLCHHQ.btzrzEahN6GDEXkqiD3nqfvb66gK6o2', 1, 'JEj4uiIEfCXjupx82Q5N0hV7RkjbYz24S6VlATP8DUz7wlZvdtos4W0Rjvzy', 'DX3bNrEUJXJWwwxcVpXdEdtAxzKuXgvWeOoO8d84i486yFWEnMbxapPQjEoG', '2019-03-08 11:47:47', '2019-03-26 11:14:41', '11606_1553598881.jpg'),
-	(18, 'Saber Samir', 'client@dz-express.dz', '$2y$10$obfwNd8Zkj/5Jw4UXIWOTuStvz21WwBAic.heJidTcFjt1NWt1SaO', 5, NULL, 'vS0mX6SbUEZZeRlFSdBB9cYfFBfGijG3OXVhvPfPozDvlJ5MPHuCI0ObzqvU', '2019-06-05 19:48:01', '2019-06-08 14:10:32', NULL);
+	(1, 'admin', 'admin@gmail.com', '$2y$10$TENvveevcPmcHMsvLCHHQ.btzrzEahN6GDEXkqiD3nqfvb66gK6o2', 1, 'JEj4uiIEfCXjupx82Q5N0hV7RkjbYz24S6VlATP8DUz7wlZvdtos4W0Rjvzy', 'Mgn6QwtdTAwvKu4xwkO158J6ljOmdgiJrmxGvmTYlS9aQyW6ChLTe11H92CG', '2019-03-08 11:47:47', '2019-03-26 11:14:41', '11606_1553598881.jpg'),
+	(18, 'Saber Samir', 'client@dz-express.dz', '$2y$10$obfwNd8Zkj/5Jw4UXIWOTuStvz21WwBAic.heJidTcFjt1NWt1SaO', 5, NULL, 'jSpjLXJp0o47zMwtsX60OACcYolyDDmZRdk2yuFLoHXh0wf9y1PVPx251W88', '2019-06-05 19:48:01', '2019-06-08 14:10:32', NULL),
+	(19, 'client00', 'samir@example2.com', '$2y$10$OZvaVcOgF.TriATkG3Yis.Q9owWjbcpHzCQu48f24y3K46M3xA3Cq', 1, NULL, NULL, '2019-06-10 00:41:34', '2019-06-10 00:41:34', NULL),
+	(20, 'partenaire', 'partenaire@dz-express.dz', '$2y$10$Tn6.ij9ssoxXbSYpps2tNuUEkDdzbPiiESuB0p.uzU2PA4.GlpSXG', 6, NULL, 'agn5XrmGBtpFU4IMWdYBAELSHO0TKf4sk9Ui3ihSL24vmAnBESNSmKM9iehS', '2019-06-12 13:37:40', '2019-06-12 13:37:40', NULL),
+	(21, 'Client1', 'admin03@gmail.com', '$2y$10$sGNU8udKJbtx4CSv7hCPY.czdcUlMOWUtr0SjE3jshBKRhRX0ruj2', 1, NULL, 'wo5NlDmV6hxLGkAtYK8FNpJd7swgMGZfKgEbHSoKMArp7ltJWP0mNheUuaZO', '2019-07-09 12:06:37', '2019-07-09 12:06:37', NULL),
+	(22, 'université', 'universitETarf@YAHOO.COM', '$2y$10$ZS6rbEFqBx9jTEFJ2qr7eOFMfqfMjSs7ULpMBNxb6UhzYti8Bv5nS', 1, NULL, NULL, '2019-07-10 14:41:52', '2019-07-10 14:41:52', NULL),
+	(23, 'ghghgh', 'admin2@gmail.com', '$2y$10$zGg92MBPzq7L8ebFGFoLm.3mW1klWex0.39mloUxAX/V57Bf.VWB2', 1, NULL, NULL, '2019-07-10 18:33:00', '2019-07-10 18:33:00', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Listage de la structure de la table pfe-samir. zoneactivite
