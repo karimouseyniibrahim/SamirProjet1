@@ -29,9 +29,7 @@ class ColisController extends AbstractController
 
      public function store(AddRequestColis $request){
           $request->request->add([
-            'partenaire_id' => auth()->user()->id
-          ]);
-          $request->request->add([
+            'partenaire_id' => auth()->user()->id,
             'statut_liv' => 'EN COURS'
           ]);
           $item =  $this->storeOrUpdate($request , null , true);

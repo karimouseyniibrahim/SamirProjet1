@@ -30,7 +30,7 @@ class ColisApi extends Controller
     }
     public function validation($id){
         $fields = $this->model->find($id);
-        $fields->update(['valid'=>"true"]);
+        $fields->update(['valid'=>"true", 'statut_liv' => "Terminé"]);
             
         return $fields;
     }
