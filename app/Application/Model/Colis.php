@@ -11,7 +11,7 @@ class Colis extends Model
 
 
    protected $fillable = [
-        'colis_id','client_id','poids','volume'
+        'colis_id','client_id','poids','volume','valid'
    ];
 
 
